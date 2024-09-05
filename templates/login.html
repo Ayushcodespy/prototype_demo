@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            height: 100%
+        }
+
+        body{
+            height: 99%;
+            background-image: url('/static/images/bg-image.jpg');
+            background-size: cover;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .login-container {
+            /* height: 500px; */
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            align-content: center;
+        }
+
+        .login-container h2{
+            font-family: Arial;
+        }
+
+        .login-container input{
+            width: 80%;
+            padding: 10PX;
+            margin: 10PX;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .login-container button{
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover{
+            background-color: #168730;
+            transition: ease 0.3s;
+        }
+
+        .login-container a {
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+        color: blue;
+        font-size: 16.3px;
+        transition: ease-in-out 200ms;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <p>{{error}}</p>
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="text" placeholder="User ID" name="user_id">
+            <input type="password" placeholder="Password" name="passwd" required>
+            <button type="submit">Login</button>
+        </form>
+        <p><a href="/forget_pwd">Forgot Password</a></p>
+        <p>Don't have an account? <br><a href="">Create New</a></p>
+    </div>
+</body>
+</html>
