@@ -5,11 +5,19 @@ app.secret_key = "super-secret-key"
 
 @app.route('/')
 def home():
+    # Check if 'user' key exists in the session
     if 'user' in session:
-        return render_template("login.html")
-
-    else:
-        return redirect(url_for('login'))
+        if session['user'] == 'admin':
+            return redirect(url_for('admin_page'))
+        
+        if session['user'] == 'alumni':
+            return redirect(url_for('alumni_page'))
+        
+        if session['user'] == 'student':
+            return redirect(url_for('student_page'))
+    
+    # Default redirect if 'user' key is not present or does not match any condition
+    return redirect(url_for('login'))
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -18,8 +26,6 @@ def login():
         username = request.form['user_id']
         password = request.form['passwd']
         user_type = request.form['user_type']
-
-        print(f"Username: {username}, Password: {password}, User Type: {user_type}")  # Debug line
 
         if user_type == 'administration':
             if username == 'admin' and password == 'admin':
@@ -61,7 +67,7 @@ def student_page():
 
 @app.route("/logout", methods=['GET','POST'])
 def logout():
-    session.pop('user')
+    session.pop('user',None)
     return redirect(url_for('login'))
 
 
