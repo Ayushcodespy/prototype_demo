@@ -6,7 +6,7 @@
     <title>Prototype Model</title>
     <style>
         html{
-            height: 100%
+            height: 100%;
         }
 
         body{
@@ -18,7 +18,6 @@
         }
 
         .login-container {
-            /* height: 500px; */
             width: 300px;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
@@ -32,10 +31,10 @@
             font-family: Arial;
         }
 
-        .login-container input{
+        .login-container input, .login-container select {
             width: 80%;
-            padding: 10PX;
-            margin: 10PX;
+            padding: 10px;
+            margin: 10px;
             border-radius: 6px;
             border: 1px solid #ccc;
             box-sizing: border-box;
@@ -63,9 +62,9 @@
         }
 
         .login-container a:hover {
-        color: blue;
-        font-size: 16.3px;
-        transition: ease-in-out 200ms;
+            color: blue;
+            font-size: 16.3px;
+            transition: ease-in-out 200ms;
         }
 
     </style>
@@ -77,6 +76,15 @@
         <form action="/login" method="post">
             <input type="text" placeholder="User ID" name="user_id">
             <input type="password" placeholder="Password" name="passwd" required>
+            
+            <!-- Add User Type Dropdown -->
+            <select name="user_type" required>
+                <option value="" disabled selected>Select User Type</option>
+                <option value="alumni">Alumni</option>
+                <option value="student">Student</option>
+                <option value="administration">Administration</option>
+            </select>
+
             <button type="submit">Login</button>
         </form>
         <p><a href="/forget_pwd">Forgot Password</a></p>
