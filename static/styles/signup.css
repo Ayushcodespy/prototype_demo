@@ -419,12 +419,3 @@ form.sign-in-form {
     left: 50%;
   }
 }
-
-
-.error-message-container{
-  height: 30px;
-  color: red;
-}
-#error-message{
-  display: none;
-}
