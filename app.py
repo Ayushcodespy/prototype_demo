@@ -15,7 +15,17 @@ def login():
         password = request.form['password']
         if username == password:
             return 'Welcome logged in'
-    return "hello"
+        else:
+            return render_template('signup.html', error='Invalid login details !')
+    return render_template('signup.html')
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        return redirect(url_for('home'))
+    
+    return redirect(url_for('home'))
 
 
 
