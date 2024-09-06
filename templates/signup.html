@@ -17,24 +17,26 @@
         <div class="forms-container">
             <div class="signin-signup">
                 <form action="/login" class="sign-in-form" method="post">
+                    <div class="error-container">
+                        <h3 id="error_message">{{error}}</h3>
+                    </div>
                     <h2 class="title">Sign in</h2>
-
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <select class="user-type" name="user-type" id="">
-                            <option value="" disabled selected>Select User Type</option>
-                            <option value="admin">Admin</option>
-                            <option value="alumni">Alumni</option>
-                            <option value="student">Student</option>
+                        <select class="user-type" name="user_type" id="" required>
+                            <option value="" disabled selected >Select User Type</option>
+                            <option value="admin" disabled >Admin</option>
+                            <option value="alumni" selected >Alumni</option>
+                            <option value="student" disabled >Student</option>
                         </select>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="username" placeholder="Username" />
+                        <input type="text" name="username" placeholder="Username" value="alumni" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="password" placeholder="Password" />
+                        <input type="password" name="password" placeholder="Password" value="alumni" required />
                     </div>
                     <input type="submit" value="Login" class="btn solid" />
                     <p class="social-text">Or Sign in with social platforms</p>
@@ -57,7 +59,7 @@
                     <h2 class="title">Sign up</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <select class="user-type" name="user-type" id="">
+                        <select class="user-type" name="user-type" id="" required >
                             <option value="" disabled selected>Select User Type</option>
                             <option value="admin" disabled>Admin</option>
                             <option value="alumni" selected>Alumni</option>
@@ -66,11 +68,11 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" placeholder="Email" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Password" required />
                     </div>
                     <input type="submit" class="btn" value="Sign up" />
                     <p class="social-text">Or Sign up with social platforms</p>
@@ -121,6 +123,14 @@
             </div>
         </div>
     </div>
+
+    <!-- to hide error message -->
+     <script>
+        document.getElementById("error_message").style.display="block";
+        setTimeout(function(){
+            document.getElementById("error_message").style.display="none";
+        },1000);
+     </script>
 
     <script>
         const sign_in_btn = document.querySelector("#sign-in-btn");

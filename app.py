@@ -11,6 +11,7 @@ def home():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        user_type = request.form['user_type']
         username = request.form['username']
         password = request.form['password']
         if username == password:
@@ -23,6 +24,9 @@ def login():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
+        user_type = request.form['user_type']
+        email = request.form['email']
+        password = request.form['password']
         return redirect(url_for('home'))
     
     return redirect(url_for('home'))
