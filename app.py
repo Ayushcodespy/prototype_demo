@@ -5,6 +5,9 @@ app.secret_key = "super-secret-key"
 
 @app.route('/')
 def home():
+    if 'user' in session:
+        return render_template("home.html")
+    
     return render_template('signup.html')
 
 
@@ -15,7 +18,8 @@ def login():
         username = request.form['username']
         password = request.form['password']
         if username == password:
-            return 'Welcome logged in'
+            session['user'] = username
+            return redirect(url_for('home'))
         else:
             return render_template('signup.html', error='Invalid login details !')
     return render_template('signup.html')
