@@ -18,7 +18,9 @@ html{
 body{
   min-height: 100vh;
   min-height: 100dvh;
-  background-color: var(--base-clr);
+  background: linear-gradient(to bottom, rgb(2, 2, 45), rgb(227, 213, 213));
+  background-repeat: no-repeat;
+  background-size: contain;
   color: var(--text-clr);
   display: grid;
   grid-template-columns: auto 1fr;
@@ -220,7 +222,7 @@ main p{
 
 
 .hero {
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKivvwviZEIWSn37AktW02XYUiufInNC35dQ&s) no-repeat center center/cover ;
+  /* background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKivvwviZEIWSn37AktW02XYUiufInNC35dQ&s) no-repeat center center/cover ; */
   color: #fff;
   text-align: center;
   padding: 5rem 0;
