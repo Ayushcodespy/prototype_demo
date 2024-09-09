@@ -296,6 +296,8 @@ main p{
 }
 
 .hero p {
+  line-height: 1.8;
+  word-spacing: 3px;
   font-size: 1.2rem;
   margin-bottom: 2rem;
   animation: fadeInUp 1.5s ease-out 0.5s;
